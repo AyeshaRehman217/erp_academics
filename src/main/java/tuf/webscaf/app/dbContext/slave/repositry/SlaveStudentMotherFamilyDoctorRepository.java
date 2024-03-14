@@ -1,0 +1,35 @@
+package tuf.webscaf.app.dbContext.slave.repositry;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import tuf.webscaf.app.dbContext.slave.entity.SlaveStudentMotherFamilyDoctorEntity;
+
+import java.util.UUID;
+
+@Repository
+public interface SlaveStudentMotherFamilyDoctorRepository extends ReactiveCrudRepository<SlaveStudentMotherFamilyDoctorEntity, Long> {
+    Flux<SlaveStudentMotherFamilyDoctorEntity> findAllByNameContainingIgnoreCaseAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndDeletedAtIsNull(Pageable pageable, String name, String description, String clinicalAddress);
+
+    Flux<SlaveStudentMotherFamilyDoctorEntity> findAllByNameContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndStatusAndDeletedAtIsNull(Pageable pageable, String name, Boolean status1, String description, Boolean status2, String clinicalAddress, Boolean status3);
+
+    Flux<SlaveStudentMotherFamilyDoctorEntity> findAllByNameContainingIgnoreCaseAndStudentMotherUUIDAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndStudentMotherUUIDAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndStudentMotherUUIDAndDeletedAtIsNull(Pageable pageable, String name, UUID studentMotherUUID, String description, UUID studentMotherUUID2, String clinicalAddress, UUID studentMotherUUID3);
+
+    Flux<SlaveStudentMotherFamilyDoctorEntity> findAllByNameContainingIgnoreCaseAndStudentMotherUUIDAndStatusAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndStudentMotherUUIDAndStatusAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndStudentMotherUUIDAndStatusAndDeletedAtIsNull(Pageable pageable, String name, UUID studentMotherUUID, Boolean status, String description, UUID studentMotherUUID2, Boolean status2, String clinicalAddress, UUID studentMotherUUID3, Boolean status3);
+
+    Mono<Long> countByNameContainingIgnoreCaseAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndDeletedAtIsNull(String name, String description, String clinicalAddress);
+
+    Mono<Long> countByNameContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndStatusAndDeletedAtIsNull(String name, Boolean status1, String description, Boolean status2, String clinicalAddress, Boolean status3);
+
+    Mono<Long> countByNameContainingIgnoreCaseAndStudentMotherUUIDAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndStudentMotherUUIDAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndStudentMotherUUIDAndDeletedAtIsNull(String name, UUID studentMotherUUID, String description, UUID studentMotherUUID2, String clinicalAddress, UUID studentMotherUUID3);
+
+    Mono<Long> countByNameContainingIgnoreCaseAndStudentMotherUUIDAndStatusAndDeletedAtIsNullOrDescriptionContainingIgnoreCaseAndStudentMotherUUIDAndStatusAndDeletedAtIsNullOrClinicalAddressContainingIgnoreCaseAndStudentMotherUUIDAndStatusAndDeletedAtIsNull(String name, UUID studentMotherUUID, Boolean status, String description, UUID studentMotherUUID2, Boolean status2, String clinicalAddress, UUID studentMotherUUID3, Boolean status3);
+
+
+    Mono<SlaveStudentMotherFamilyDoctorEntity> findByIdAndDeletedAtIsNull(Long id);
+
+    Mono<SlaveStudentMotherFamilyDoctorEntity> findByUuidAndDeletedAtIsNull(UUID uuid);
+
+}

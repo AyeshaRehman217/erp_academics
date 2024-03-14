@@ -1,0 +1,37 @@
+package tuf.webscaf.app.dbContext.slave.repositry;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import tuf.webscaf.app.dbContext.slave.entity.SlaveTeacherJobHistoryEntity;
+
+import java.util.UUID;
+
+@Repository
+public interface SlaveTeacherJobHistoryRepository extends ReactiveCrudRepository<SlaveTeacherJobHistoryEntity, Long> {
+
+    Flux<SlaveTeacherJobHistoryEntity> findAllByOccupationContainingIgnoreCaseAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndDeletedAtIsNull(Pageable pageable,String occupation,String designation,String organization);
+
+    Flux<SlaveTeacherJobHistoryEntity> findAllByOccupationContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndStatusAndDeletedAtIsNull(Pageable pageable,String occupation,Boolean status1,String designation,Boolean status2,String organization,Boolean status3);
+
+    Flux<SlaveTeacherJobHistoryEntity> findAllByOccupationContainingIgnoreCaseAndTeacherUUIDAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndTeacherUUIDAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndTeacherUUIDAndDeletedAtIsNull(Pageable pageable,String occupation,UUID teacherUUID1,String designation,UUID teacherUUID2,String organization,UUID teacherUUID3);
+
+    Flux<SlaveTeacherJobHistoryEntity> findAllByOccupationContainingIgnoreCaseAndTeacherUUIDAndStatusAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndTeacherUUIDAndStatusAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndTeacherUUIDAndStatusAndDeletedAtIsNull(Pageable pageable,String occupation,UUID teacherUUID1, Boolean status1,String designation,UUID teacherUUID2, Boolean status2,String organization,UUID teacherUUID3, Boolean status3);
+
+    Mono<Long> countByOccupationContainingIgnoreCaseAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndDeletedAtIsNull(String occupation,String designation,String organization);
+
+    Mono<Long> countByOccupationContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndStatusAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndStatusAndDeletedAtIsNull(String occupation,Boolean status1,String designation,Boolean status2,String organization,Boolean status3);
+
+    Mono<Long> countByOccupationContainingIgnoreCaseAndTeacherUUIDAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndTeacherUUIDAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndTeacherUUIDAndDeletedAtIsNull(String occupation,UUID teacherUUID1,String designation,UUID teacherUUID2,String organization,UUID teacherUUID3);
+
+    Mono<Long> countByOccupationContainingIgnoreCaseAndTeacherUUIDAndStatusAndDeletedAtIsNullOrDesignationContainingIgnoreCaseAndTeacherUUIDAndStatusAndDeletedAtIsNullOrOrganizationContainingIgnoreCaseAndTeacherUUIDAndStatusAndDeletedAtIsNull(String occupation,UUID teacherUUID1, Boolean status1,String designation,UUID teacherUUID2, Boolean status2,String organization,UUID teacherUUID3, Boolean status3);
+
+    Mono<SlaveTeacherJobHistoryEntity> findByIdAndDeletedAtIsNull(Long id);
+
+    Mono<SlaveTeacherJobHistoryEntity> findByUuidAndDeletedAtIsNull(UUID uuid);
+
+    //Find By Currency uuid In Config Module
+    Mono<SlaveTeacherJobHistoryEntity> findFirstByCurrencyUUIDAndDeletedAtIsNull(UUID currencyUUID);
+}

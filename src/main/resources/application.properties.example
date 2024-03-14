@@ -1,0 +1,64 @@
+##### Master Database Connection #####
+master.data.postgres.driver=postgresql
+master.data.postgres.protocol=postgresql
+master.data.postgres.host=[Host]
+master.data.postgres.port=[DB-Port]
+master.data.postgres.user=[User]
+master.data.postgres.password=[Password]
+master.data.postgres.database=[Database]
+master.data.postgres.maxconectionpoolsize=50
+
+##### Slave Database Connection #####
+slave.data.postgres.driver=postgresql
+slave.data.postgres.protocol=postgresql
+slave.data.postgres.host=[Host]
+slave.data.postgres.port=[DB-Port]
+slave.data.postgres.user=[User]
+slave.data.postgres.password=[Password]
+slave.data.postgres.database=[Database]
+slave.data.postgres.maxconectionpoolsize=50
+
+##### Spring Doc #####
+springdoc.swagger-ui.defaultModelsExpandDepth=-1
+
+server.error.whitelabel.enabled=false
+server.error.include-stacktrace=never
+logging.level.org.springframework.r2dbc=DEBUG
+logging.level.io.r2dbc.postgresql.QUERY=DEBUG
+logging.level.io.r2dbc.postgresql.PARAM=DEBUG
+
+##### SSL Status #####
+server.ssl-status=enable
+
+##### Drive URI #####
+server.erp_drive_module.uri=https://172.15.10.195/drive/
+
+##### Config URI #####
+server.erp_config_module.uri=https://172.15.10.195/config/
+
+##### Student Financial Module URI #####
+server.erp_student_financial_module.uri=https://172.15.10.195/student/financial/
+
+##### Module Id #####
+server.module.id=5
+
+### erp_academic_module_uuid ###
+server.module.uuid=c3fcad2e-925f-400b-ae09-8d81a2f22da2
+
+###Academic URI###
+server.erp_academic_module.uri=https://172.15.10.195/academic/
+
+###Auth URI###
+server.erp_auth_module.uri=https://172.15.10.195/auth/
+
+### zone ###
+server.zone = Asia/Karachi
+
+webclient.backend.token=eyJhbGciOiJQUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.ecyIfJCrVTu4WP6qdPLpOqfyOLZjL7Qv9UvS4Ifdqt6F_i4jkBPsteSEcr97TyRf_MeKl4nsddup2RE6SvnUpjWyPXbwS9Gx1JZsKemPe8bqc6961mbn7J-iF6xnXlBLmt0zz3YNpCQMlhS4qU-hYRHJmGtkQaBxFXhowyQ1Ii1Kw69P42IX7Sa4e4tJrcu2IO_9koR6B2zYEs4uzMaLw-ThBxCg-RetvoE9BY0h2oeOKlutmGnCvcpVLchPCSCJXM9vDRITjuB-TUcteyVDs9uTjln4v5j10fJFuWkOzr5aXGDsUnUQ8zzvHt5hz_nIUs8RIX-tg4-8PmgGcL_xzw
+
+jwt.secret=AMDXGbO7gGwf3hoFPpm6GwQvFrqoCsn2
+
+app.verification.url=https://172.15.10.195/valid/auth/api/v1/validation/check
+
+### Server Connection Time out ###
+server.netty.connection-timeout=30000
